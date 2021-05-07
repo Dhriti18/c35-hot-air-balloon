@@ -23,7 +23,7 @@ function setup() {
   balloon=createSprite(250,450,150,150);
   balloon.addAnimation("hotAirBalloon",balloonImage1);
   balloon.scale=0.5;
-var balloonPos=database.ref("balloon/height");
+var balloonPos=database.ref("Balloon/height");
 balloonPos.on("value",function (data){
   height=data.val();
   balloon.x=height.x;
