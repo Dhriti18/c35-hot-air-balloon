@@ -9,17 +9,7 @@ function preload(){
    "hotairballoon1.png","hotairballoon2.png","hotairballoon2.png",
    "hotairballoon2.png","hotairballoon3.png","hotairballoon3.png","hotairballoon3.png");
 
-var balloonPos=database.ref("balloon/height");
-balloonPos.on("value",function (data){
-  height=data.val();
-  balloon.x=height.x;
-  balloon.y=height.y;
-}
-  
-  
-  ,function (error){
-    console.log("Error"+error.code);
-    })
+
     
 
   }
@@ -33,7 +23,17 @@ function setup() {
   balloon=createSprite(250,450,150,150);
   balloon.addAnimation("hotAirBalloon",balloonImage1);
   balloon.scale=0.5;
-
+var balloonPos=database.ref("balloon/height");
+balloonPos.on("value",function (data){
+  height=data.val();
+  balloon.x=height.x;
+  balloon.y=height.y;
+}
+  
+  
+  ,function (error){
+    console.log("Error"+error.code);
+    })
   textSize(20); 
 }
 
